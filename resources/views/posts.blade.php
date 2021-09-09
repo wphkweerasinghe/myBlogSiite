@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/app.css">
 <body>
     <article>
-        <h1>My First Post</h1>
+        <h1><a href="/post">My First Post</a></h1>
         <p>
             Typically, SMS messages have a limit of 160 characters, which in some cases just isn’t enough. Let’s say you’d like to send a very important business
             SMS without having to shorten words or use text talk. This is where concatenation or long SMS messages come in.
@@ -15,7 +15,7 @@
     </article>
 
     <article>
-        <h1>My Second Post</h1>
+        <h1><a href="/post">My Second Post</a></h1>
         <p>
             Typically, SMS messages have a limit of 160 characters, which in some cases just isn’t enough. Let’s say you’d like to send a very important business
             SMS without having to shorten words or use text talk. This is where concatenation or long SMS messages come in.
@@ -26,7 +26,7 @@
     </article>
 
     <article>
-        <h1>My Third Post</h1>
+        <h1><a href="/post">My Third Post</a></h1>
         <p>
             Typically, SMS messages have a limit of 160 characters, which in some cases just isn’t enough. Let’s say you’d like to send a very important business
             SMS without having to shorten words or use text talk. This is where concatenation or long SMS messages come in.
