@@ -22,22 +22,27 @@ class Post
         $this->slug = $slug;
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function all()
     {
-        return collect(File::files(resource_path("views/post")))
-            ->map(function ($file) {
-                return YamlFrontMatter::parseFile($file);
-            })
-            ->map(function ($document) {
-                return new Post(
-                    $document->title,
-                    $document->excerpt,
-                    $document->date,
-                    $document->body(),
-                    $document->slug
-                );
-            })
-            ->sortByDesc('date');
+        return cache()->rememberForever('posts.all', function () {
+            return collect(File::files(resource_path("views/post")))
+                ->map(function ($file) {
+                    return YamlFrontMatter::parseFile($file);
+                })
+                ->map(function ($document) {
+                    return new Post(
+                        $document->title,
+                        $document->excerpt,
+                        $document->date,
+                        $document->body(),
+                        $document->slug
+                    );
+                })
+                ->sortByDesc('date');
+        });
     }
 
     /**
