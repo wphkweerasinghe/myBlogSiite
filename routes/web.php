@@ -1,9 +1,7 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +13,11 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    $files = File::files(resource_path("views/post/"));
-    $posts = [];
-    foreach ($files as $file) {
-        $document[] = YamlFrontMatter::parseFile($file);
 
-        $posts[] = new Post(
-            $document->title,
-            $document->excerpt,
-            $document->date,
-            $document->body()
-        );
-    }
-    ddd($posts);
-
-//    return view('posts',[
-//        'posts' => Post::all()
-//    ]);
+    return view('posts', [
+        'posts' => Post::all()
+    ]);
 });
 Route::get('/posts/{post}', function ($slug) {
     return view('post', [
